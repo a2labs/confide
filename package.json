@@ -1,0 +1,26 @@
+{
+  "name": "confy",
+  "version": "1.0.0",
+  "description": "simple app configuration",
+  "contributors": ["Nicholas Cloud <ncloud@appendto.com>"],
+  "keywords": ["configuration", "config"],
+  "license": "MIT",
+  "main": "confy.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/a2labs/confy"
+  },
+  "dependencies": {
+    "underscore": "latest",
+    "async": "latest"
+  },
+  "devDependencies": {
+    "mocha": "latest",
+    "chai": "latest",
+    "async": "latest"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/mocha -u tdd test"
+  }
+
+}

@@ -1,0 +1,5 @@
+*~
+*.orig
+*.swp
+.idea/
+node_modules/
