@@ -1,7 +1,7 @@
 /*global suite, test, setup, teardown*/
 'use strict';
 var assert = require('chai').assert,
-  confy = require('../confy'),
+  confide = require('../confide'),
   path = require('path'),
   fs = require('fs');
 
@@ -10,7 +10,7 @@ var CONFIG_DIR = path.join(__dirname, 'config');
 suite('#load', function () {
 
   test('should load default config with no env parameter', function (done) {
-    var config = confy({configDir: CONFIG_DIR});
+    var config = confide({configDir: CONFIG_DIR});
     config.load(function (err, mergedConfig) {
       var expected = 'default';
       assert.isNull(err);
@@ -21,7 +21,7 @@ suite('#load', function () {
   });
 
   test('should load default config with env parameter', function (done) {
-    var config = confy({configDir: CONFIG_DIR});
+    var config = confide({configDir: CONFIG_DIR});
     config.load('default', function (err, mergedConfig) {
       var expected = 'default';
       assert.isNull(err);
@@ -32,7 +32,7 @@ suite('#load', function () {
   });
 
   test('should load environment config with env parameter', function (done) {
-    var config = confy({configDir: CONFIG_DIR});
+    var config = confide({configDir: CONFIG_DIR});
     config.load('development', function (err, mergedConfig) {
       var expected = 'development';
       assert.isNull(err);
@@ -43,7 +43,7 @@ suite('#load', function () {
   });
 
   test('should load merged environment config with env parameter', function (done) {
-    var config = confy({configDir: CONFIG_DIR});
+    var config = confide({configDir: CONFIG_DIR});
     config.load('development', function (err, mergedConfig) {
       var expectedProperty = 'defaultOnly';
       assert.isNull(err);
@@ -54,7 +54,7 @@ suite('#load', function () {
   });
 
   test('should err if no default environment specified, and env parameter absent', function (done) {
-    var config = confy({configDir: CONFIG_DIR, defaultEnv: ''});
+    var config = confide({configDir: CONFIG_DIR, defaultEnv: ''});
     config.load(function (err) {
       assert.isNotNull(err);
       done();
@@ -62,7 +62,7 @@ suite('#load', function () {
   });
 
   test('should err if invalid env specified', function (done) {
-    var config = confy({configDir: CONFIG_DIR});
+    var config = confide({configDir: CONFIG_DIR});
     config.load('bazinga', function (err) {
       assert.isNotNull(err);
       done();
@@ -87,7 +87,7 @@ suite('#load', function () {
     });
 
     test('should cache config values by default', function (done) {
-      var config = confy({configDir: CONFIG_DIR});
+      var config = confide({configDir: CONFIG_DIR});
       config.load('fake', function (err1, config1) {
         assert.isNull(err1);
         assert.isObject(config1);
@@ -102,7 +102,7 @@ suite('#load', function () {
     });
 
     test('should cache config values when cache param is true', function (done) {
-      var config = confy({configDir: CONFIG_DIR, cache: true});
+      var config = confide({configDir: CONFIG_DIR, cache: true});
       config.load('fake', function (err1, config1) {
         assert.isNull(err1);
         assert.isObject(config1);
@@ -117,7 +117,7 @@ suite('#load', function () {
     });
 
     test('should not cache config values when cache param is false', function (done) {
-      var config = confy({configDir: CONFIG_DIR, cache: false});
+      var config = confide({configDir: CONFIG_DIR, cache: false});
       config.load('fake', function (err1, config1) {
         assert.isNull(err1);
         assert.isObject(config1);

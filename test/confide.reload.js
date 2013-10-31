@@ -1,7 +1,7 @@
 /*global suite, test, setup, teardown*/
 'use strict';
 var assert = require('chai').assert,
-  confy = require('../confy'),
+  confide = require('../confide'),
   path = require('path'),
   fs = require('fs');
 
@@ -21,7 +21,7 @@ suite('#reload', function () {
   });
 
   test('reloads a particular environment', function (done) {
-    var config = confy({configDir: CONFIG_DIR, defaultEnv: 'fakeDefault'});
+    var config = confide({configDir: CONFIG_DIR, defaultEnv: 'fakeDefault'});
     config.load('fake', function (err1, config1) {
       assert.isNull(err1);
       assert.isObject(config1);
@@ -40,7 +40,7 @@ suite('#reload', function () {
   });
 
   test('reloads default environment', function (done) {
-    var config = confy({configDir: CONFIG_DIR, defaultEnv: 'fakeDefault'});
+    var config = confide({configDir: CONFIG_DIR, defaultEnv: 'fakeDefault'});
     config.load('fake', function (err1, config1) {
       assert.isNull(err1);
       assert.isObject(config1);
@@ -59,7 +59,7 @@ suite('#reload', function () {
   });
 
   test('reloads both environments', function (done) {
-    var config = confy({configDir: CONFIG_DIR, defaultEnv: 'fakeDefault'});
+    var config = confide({configDir: CONFIG_DIR, defaultEnv: 'fakeDefault'});
     config.load('fake', function (err1, config1) {
       assert.isNull(err1);
       assert.isObject(config1);

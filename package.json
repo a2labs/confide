@@ -1,14 +1,14 @@
 {
-  "name": "confy",
+  "name": "confide",
   "version": "1.0.0",
   "description": "simple app configuration",
   "contributors": ["Nicholas Cloud <ncloud@appendto.com>"],
   "keywords": ["configuration", "config"],
   "license": "MIT",
-  "main": "confy.js",
+  "main": "confide.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/a2labs/confy"
+    "url": "git://github.com/a2labs/confide"
   },
   "dependencies": {
     "underscore": "latest",

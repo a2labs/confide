@@ -1,6 +1,6 @@
-# confy
+# confide
 
-Confy is a simple configuration module for node.js. It will merge an environment-specific configuration file with a default configuration file and return the merged values.
+Confide is a simple configuration module for node.js. It will merge an environment-specific configuration file with a default configuration file and return the merged values.
 
 Assume the directory structure:
 
@@ -9,7 +9,7 @@ Assume the directory structure:
 |  |- default.json
 |  |- production.json
 |- node_modules
-|  |- confy
+|  |- confide
 |- myscript.js
 ```
 
@@ -29,19 +29,19 @@ Any property declared in a default config file may be overridden by an environme
 }
 ```
 
-In myscript.js, we can read our configuration by invoking confy's `load()` method:
+In myscript.js, we can read our configuration by invoking confide's `load()` method:
 
 ```javascript
 var path = require('path'),
   CONFIG_DIR = path.join(__dirname, 'config'),
-  confy = require('confy');
+  confide = require('confide');
 
-confy({configDir: CONFIG_DIR}).load('production', function (err, mergedConfig) {
+confide({configDir: CONFIG_DIR}).load('production', function (err, mergedConfig) {
   mergedConfig.showLogMsgs; // false
 });
 ```
 
-The `confy` function takes a number of parameters:
+The `confide` function takes a number of parameters:
 
 - `configDir` (required) - directory where configuration files are located
 - `defaultEnv` (optional, defaults to `default`) - name of the default env (default json file)
@@ -50,7 +50,7 @@ The `confy` function takes a number of parameters:
 If you don't need environment-specific configuration, you can just create default.json in your config directory, and leave out the environment parameter when calling `load()`:
 
 ```javascript
-confy({configDir: CONFIG_DIR}).load(function (err, defaultConfig) {
+confide({configDir: CONFIG_DIR}).load(function (err, defaultConfig) {
   defaultConfig.showLogMsgs; // true
 });
 ```
@@ -58,7 +58,7 @@ confy({configDir: CONFIG_DIR}).load(function (err, defaultConfig) {
 If cache is enabled (it is by default) and you wish to focibly reload your configuration, just call the `reload()` method with the same parameters as `load()`:
 
 ```javascript
-var conf = confy({configDir: CONFIG_DIR});
+var conf = confide({configDir: CONFIG_DIR});
 conf.load('production', function (err, mergedConfig) {
   mergedConfig.showLogMsgs; // false
 
