@@ -1,4 +1,9 @@
 {
   "configName": "default",
-  "defaultOnly": true
+  "defaultOnly": true,
+  "level1": {
+    "level2": {
+      "level3": true
+    }
+  }
 }

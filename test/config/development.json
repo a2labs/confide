@@ -1,4 +1,10 @@
 {
   "configName": "development",
-  "developmentOnly": true
+  "developmentOnly": true,
+  "level1": {
+    "atLevel1": true,
+    "level2": {
+      "atLevel2": true
+    }
+  }
 }

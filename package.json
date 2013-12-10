@@ -1,10 +1,10 @@
 {
   "name": "confide",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "simple app configuration",
   "contributors": ["Nicholas Cloud <ncloud@appendto.com>"],
   "keywords": ["configuration", "config"],
-  "license": "MIT",
+  "license": "LICENSE",
   "main": "confide.js",
   "repository": {
     "type": "git",
@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "underscore": "latest",
-    "async": "latest"
+    "async": "latest",
+    "deep-extend": "latest"
   },
   "devDependencies": {
     "mocha": "latest",
@@ -22,5 +23,4 @@
   "scripts": {
     "test": "node_modules/.bin/mocha -u tdd test"
   }
-
 }

@@ -3,7 +3,8 @@
 var path = require('path'),
   fs = require('fs'),
   _ = require('underscore'),
-  async = require('async');
+  async = require('async'),
+  deepExtend = require('deep-extend');
 
 /**
  * Default module configuration
@@ -85,7 +86,7 @@ function mergeConfigs(env, configHash, cb) {
     return cb('`' + env + '` configuration not present');
   }
   var envConfig = configHash[env];
-  var mergedConfig = _.defaults(envConfig, defaultConfig);
+  var mergedConfig = deepExtend({}, defaultConfig, envConfig);
   cb(null, mergedConfig);
 }
 

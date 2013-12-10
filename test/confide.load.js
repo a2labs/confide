@@ -53,6 +53,25 @@ suite('#load', function () {
     });
   });
 
+  test('should load merged environment at multiple levels (deep extend)', function (done) {
+    var config = confide({configDir: CONFIG_DIR});
+    config.load('development', function (err, mergedConfig) {
+      var level;
+      assert.property(mergedConfig, 'level1');  //default & development
+      assert.isObject(mergedConfig.level1);
+      level = mergedConfig.level1;
+      assert.property(level, 'atLevel1');       //development
+      assert.isTrue(level.atLevel1);
+      assert.property(level, 'level2');         //default & development
+      assert.isObject(level.level2);
+      level = level.level2;
+      assert.property(level, 'atLevel2');       //development
+      assert.property(level, 'level3');         //default
+      assert.isTrue(level.level3);              //default
+      done();
+    });
+  });
+
   test('should err if no default environment specified, and env parameter absent', function (done) {
     var config = confide({configDir: CONFIG_DIR, defaultEnv: ''});
     config.load(function (err) {
