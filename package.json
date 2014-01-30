@@ -1,6 +1,6 @@
 {
   "name": "confide",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "simple app configuration",
   "contributors": ["Nicholas Cloud <ncloud@appendto.com>"],
   "keywords": ["configuration", "config"],
